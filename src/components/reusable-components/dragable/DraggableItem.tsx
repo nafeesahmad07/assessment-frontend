@@ -21,6 +21,7 @@ export const DraggableItem: React.FC<DraggableItemProps> = ({
     border: "1px solid #d4d4d8",
     borderRadius: "12px",
     cursor: "grab",
+    touchAction: "none",
   };
 
   return (

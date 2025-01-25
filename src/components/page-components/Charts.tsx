@@ -1,5 +1,12 @@
 import React, { useState, useEffect, FC } from "react";
-import { DndContext, closestCenter } from "@dnd-kit/core";
+import {
+  DndContext,
+  PointerSensor,
+  TouchSensor,
+  closestCenter,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
 import {
   SortableContext,
   arrayMove,
@@ -140,8 +147,22 @@ const LineChartGroup: FC = () => {
     localStorage.setItem("charts", JSON.stringify(chartsWithGradientData));
   }, [charts]);
 
+  const pointerSensor = useSensor(PointerSensor);
+  const touchSensor = useSensor(TouchSensor, {
+    activationConstraint: {
+      delay: 150, // Delay for touch activation to prevent accidental drags
+      tolerance: 10, // A small drag tolerance before starting the drag
+    },
+  });
+
+  const sensors = useSensors(pointerSensor, touchSensor);
+
   return (
-    <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+    <DndContext
+      sensors={sensors}
+      collisionDetection={closestCenter}
+      onDragEnd={handleDragEnd}
+    >
       <SortableContext
         items={charts.map((chart: Chart) => chart.id)}
         strategy={verticalListSortingStrategy}

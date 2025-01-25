@@ -36,13 +36,13 @@ body {
         }
       }
       .label__title {
-        @apply text-primary-default capitalize font-bold text-xs mb-1.5 order-1;
+        @apply text-primary-default capitalize font-bold text-[10px] md:text-xs mb-1.5 order-1;
       }
       .label__value {
-        @apply text-2xl font-semibold text-primary-default mb-1.5 order-2 relative;
+        @apply text-base md:text-2xl font-semibold text-primary-default mb-1.5 order-2 relative;
         width: min-content;
         &:after {
-          @apply absolute bottom-0.5 -right-[50px] text-base font-semibold text-primary-default;
+          @apply absolute bottom-0 md:bottom-0.5 -right-[45px] md:-right-[50px] text-base font-semibold text-primary-default;
         }
       }
       .label__percentage {
@@ -63,7 +63,7 @@ body {
   &:not(.svg-funnel-js--vertical) {
     @apply pt-[120px];
     .svg-funnel-js__label {
-      @apply flex flex-col pl-6 pt-2;
+      @apply flex flex-col pl-2 md:pl-6 pt-2;
       &:not(:first-child) {
         @apply border-l border-default-70;
       }

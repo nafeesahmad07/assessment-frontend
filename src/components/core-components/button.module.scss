@@ -9,6 +9,6 @@
     @apply bg-secondary-default text-white;
   }
   &.small {
-    @apply text-base py-1.5 px-4 rounded-lg;
+    @apply text-base py-1.5 px-4 rounded-lg shrink-0;
   }
 }

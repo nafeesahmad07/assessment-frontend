@@ -1,4 +1,3 @@
-@use "./../abstracts/mixins/mediaQuriesMixin.scss" as *;
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 @tailwind base;
 @tailwind components;
@@ -17,6 +16,17 @@
     scroll-behavior: smooth;
   }
 }
+* {
+  &::-webkit-scrollbar {
+    @apply w-1.5 h-1.5 bg-white;
+  }
+  &::-webkit-scrollbar-track {
+    @apply rounded-md bg-white;
+  }
+  &::-webkit-scrollbar-thumb {
+    @apply rounded-md bg-default-60;
+  }
+}
 html {
   scroll-behavior: smooth;
 }
@@ -33,7 +43,9 @@ body {
 }
 .container {
   @apply px-4;
-  @include media_query(desktop_max, min) {
-    max-width: 1034px;
+}
+.btn-group {
+  &::-webkit-scrollbar {
+    display: none;
   }
 }

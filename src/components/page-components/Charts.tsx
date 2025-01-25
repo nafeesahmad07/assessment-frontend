@@ -101,7 +101,6 @@ const LineChartGroup: FC = () => {
     const savedCharts = localStorage.getItem("charts");
     if (savedCharts) {
       const parsedCharts = JSON.parse(savedCharts) as Chart[];
-      // Recreate the gradient for each chart
       parsedCharts.forEach((chart: any) => {
         const canvas = document.createElement("canvas");
         const ctx = canvas.getContext("2d");
@@ -131,12 +130,11 @@ const LineChartGroup: FC = () => {
   };
 
   useEffect(() => {
-    // Store the gradient start and end colors, not the function
     const chartsWithGradientData = charts.map((chart: any) => ({
       ...chart,
       gradient: {
-        startColor: chart.gradient?.startColor || "#74DFA2", // Default value
-        endColor: chart.gradient?.endColor || "#0050d3", // Default value
+        startColor: chart.gradient?.startColor || "#74DFA2",
+        endColor: chart.gradient?.endColor || "#0050d3",
       },
     }));
     localStorage.setItem("charts", JSON.stringify(chartsWithGradientData));
@@ -148,7 +146,7 @@ const LineChartGroup: FC = () => {
         items={charts.map((chart: Chart) => chart.id)}
         strategy={verticalListSortingStrategy}
       >
-        <div className="line-chart-group grid grid-cols-2 items-center gap-4">
+        <div className="line-chart-group grid md:grid-cols-2 items-center gap-4">
           {charts.map((chart: Chart) => (
             <DraggableItem key={chart.id} id={chart.id}>
               <LineChart

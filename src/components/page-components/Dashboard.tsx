@@ -69,10 +69,10 @@ const Dashboard = () => {
 
   return (
     <>
-      <h1 className="text-primary-default lg:text-5xl font-bold lg:mb-8">
+      <h1 className="text-primary-default text-4xl mb-6 lg:text-5xl font-bold lg:mb-8">
         Dashboard
       </h1>
-      <div className="btn-group flex gap-3 lg:mb-9">
+      <div className="btn-group flex gap-1 lg:gap-3 mb-6 lg:mb-9 overflow-x-auto">
         {buttonsGroup.map((button) => (
           <Button
             key={button.id}

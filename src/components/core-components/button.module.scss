@@ -1,0 +1,14 @@
+.btn {
+  &.default {
+    @apply bg-transparent text-primary-default;
+  }
+  &.primary {
+    @apply bg-primary-30 text-white;
+  }
+  &.secondary {
+    @apply bg-secondary-default text-white;
+  }
+  &.small {
+    @apply text-base py-1.5 px-4 rounded-lg;
+  }
+}

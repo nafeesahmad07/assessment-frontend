@@ -1,0 +1,75 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.svg-funnel-js {
+  @apply inline-block relative;
+  svg {
+    @apply block;
+  }
+  .svg-funnel-js__labels {
+    @apply absolute flex w-full h-full top-0 left-0;
+    &.svg-funnel-js--vertical {
+      @apply flex-col;
+    }
+    .svg-funnel-js__label {
+      @apply flex-1 relative;
+      &:nth-child(1) {
+        .label__value {
+          &:after {
+            content: " views";
+          }
+        }
+      }
+      &:nth-child(2) {
+        .label__value {
+          &:after {
+            content: " views";
+          }
+        }
+      }
+      &:nth-child(3) {
+        .label__value {
+          &:after {
+            content: "leads";
+          }
+        }
+      }
+      .label__title {
+        @apply text-primary-default capitalize font-bold text-xs mb-1.5 order-1;
+      }
+      .label__value {
+        @apply text-2xl font-semibold text-primary-default mb-1.5 order-2 relative;
+        width: min-content;
+        &:after {
+          @apply absolute bottom-0.5 -right-[50px] text-base font-semibold text-primary-default;
+        }
+      }
+      .label__percentage {
+        @apply text-base font-bold text-primary-default;
+      }
+    }
+  }
+  &.svg-funnel-js--vertical {
+    @apply pl-[120px] pr-4;
+    .svg-funnel-js__label {
+      @apply pt-6;
+      .label__segment-percentages {
+        @apply mt-0 ml-[106px];
+        width: calc(100% - 106px);
+      }
+    }
+  }
+  &:not(.svg-funnel-js--vertical) {
+    @apply pt-[120px];
+    .svg-funnel-js__label {
+      @apply flex flex-col pl-6 pt-2;
+      &:not(:first-child) {
+        @apply border-l border-default-70;
+      }
+    }
+  }
+  .svg-funnel-js__container {
+    @apply w-full h-full;
+  }
+}

@@ -1,23 +1,13 @@
 import React from "react";
+import Dashboard from "./components/page-components/Dashboard";
 
-function App() {
+const App = () => {
   return (
-    <div className="App bg-blue-500 text-white px-4 py-2 rounded">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="container py-10 mx-auto">
+        <Dashboard />
+      </div>
+    </>
   );
-}
-
+};
 export default App;
